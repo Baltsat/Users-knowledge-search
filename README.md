@@ -132,7 +132,6 @@ Our talented team is here to bring this solution to life:
 | Igor Din        | Fullstack         | [t.me/dmdin](https://t.me/dmdin) |
 | Sakhnevich Kirill  | ML          | [t.me/SakhnevichKirill](https://t.me/SakhnevichKirill) |
 | Artem Sosedka            | ML          | [t.me/sostema](https://t.me/sostema) |
-| Tishin Vladislav   | ML          | [t.me/vIoods](https://t.me/vIoods) |
 
 ---
 
