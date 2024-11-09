@@ -131,7 +131,7 @@ Our talented team is here to bring this solution to life:
 | Name               | Role                 | Contact                        |
 |--------------------|----------------------|--------------------------------|
 | Konstantin Baltsat | ML         | [t.me/BALTSAT](https://t.me/BALTSAT) |
-| Igor Din        | Fullstack         | [t.me/dmdin](https://t.me/dmdin) |
+| Igor Din        | Fullstack         | [t.me/ig_din](https://t.me/ig_din) |
 | Sakhnevich Kirill  | ML          | [t.me/SakhnevichKirill](https://t.me/SakhnevichKirill) |
 | Artem Sosedka            | ML          | [t.me/sostema](https://t.me/sostema) |
 

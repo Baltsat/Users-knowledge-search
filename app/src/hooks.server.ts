@@ -3,9 +3,8 @@ import { redirect, type Handle, error } from '@sveltejs/kit'
 import { sequence } from '@sveltejs/kit/hooks'
 
 async function authorizationHandle({ event, resolve }) {
-
-  const session = await event.locals.auth();
-  event.locals.user = session?.user
+  // const session = await event.locals.auth();
+  // event.locals.user = session?.user
   return resolve(event);
 }
 
