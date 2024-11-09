@@ -1,8 +1,8 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-
-from kotaemon.base import Document, DocumentWithEmbedding
+from pydantic import BaseModel
+from pipes import find
 
 app = FastAPI()
 app.add_middleware(
@@ -13,6 +13,19 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-if __name__ == '__main__':
-    uvicorn.run('app:app', reload=True, use_colors=True)
-  
+
+
+
+# @app.post('/save')
+# def save():
+
+class Search(BaseModel):
+  query: str
+
+@app.post('/search')
+def search_endpoint(req: Search):
+  return find(req.query)
+
+
+if __name__ == "__main__":
+    uvicorn.run("app:app", reload=True, use_colors=True)

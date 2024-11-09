@@ -93,5 +93,51 @@ services:
       - "./certbot/conf:/etc/letsencrypt"
       - "./certbot/www:/var/www/certbot"
 
+
+  opensearch:
+    image: opensearchproject/opensearch:${OPENSEARCH_VERSION:-latest}
+    container_name: unspsc-opensearch
+    environment:
+      discovery.type: single-node
+      node.name: opensearch
+      OPENSEARCH_JAVA_OPTS: -Xms512m -Xmx512m
+      OPENSEARCH_INITIAL_ADMIN_PASSWORD: ${OPENSEARCH_INITIAL_ADMIN_PASSWORD}
+      plugins.security.disabled: true
+      DISABLE_INSTALL_DEMO_CONFIG: true
+      plugins.ml_commons.only_run_on_ml_node: false
+
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+        
+    volumes:
+      - opensearch-data:/usr/share/opensearch/data
+
+    ports:
+      - 9200:9200
+      - 9600:9600
+    networks:
+      - opensearch-net
+
+  opensearch-dashboards:
+    image: opensearchproject/opensearch-dashboards:${OPENSEARCH_DASHBOARDS_VERSION:-latest}
+    container_name: opensearch-dashboards
+    ports:
+      - 5601:5601
+    expose:
+      - "5601"
+    environment:
+      OPENSEARCH_HOSTS: '["http://opensearch:9200"]'
+    networks:
+      - opensearch-net
+    depends_on:
+      - opensearch
+
 volumes: 
   postgres-data: {}
+  opensearch-data: {}
+
+networks:
+  opensearch-net:
+    driver: bridge
