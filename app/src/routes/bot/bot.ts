@@ -13,5 +13,6 @@ bot.on(message('text'), async ctx => {
 });
 
 bot.on(message('document'), async ctx => {
-  console.log(ctx)
+  console.log(ctx.message.document)
 })
+

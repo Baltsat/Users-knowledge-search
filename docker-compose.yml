@@ -17,18 +17,49 @@ services:
       - redis
 
   redis:
-    container_name: redis-container
-    image: redis:latest
-    restart: unless-stopped
-    entrypoint: redis-server --appendonly yes --requirepass REDIS_PASSWORD_HERE --maxmemory 512mb --maxmemory-policy allkeys-lru
-    networks:
-      - default
-    ports:
-      - 6379:6379
+    container_name: redis
+    image: redis:7.2.3-bookworm
+    restart: always
+    command: redis-server --save 20 1 --loglevel warning
     volumes:
-      - /tmp/appdata/redis/data:/data
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
+      - ./volumes/redis/:/data
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.00"
+          memory: 4G
+  
+  chroma:
+    container_name: chromadb
+    restart: unless-stopped
+    image: ghcr.io/chroma-core/chroma:latest
+    environment:
+      - IS_PERSISTENT=TRUE
+      - ALLOW_RESET=TRUE
+      - CHROMA_HOST_PORT=8000
+    volumes:
+      - ./volumes/chroma_index_data:/chroma/.chroma/index
+    ports:
+      - 8003:8000
+    healthcheck:
+      test: curl --fail localhost:8000/api/v1/heartbeat || exit 1
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    deploy:
+      resources:
+        limits:
+          cpus: "1.00"
+          memory: 4G
 
   nginx:
     image: nginx
