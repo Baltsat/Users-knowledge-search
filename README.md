@@ -1,6 +1,6 @@
 # 📚 Knowledge Base Search Chatbot for Advertising Agencies
 
-<p style="text-align: center;">
+<p align="center">
    <img src="imgs/start_img.png" alt="Start Image">
 </p>
 
