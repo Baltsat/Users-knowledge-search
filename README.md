@@ -1,6 +1,8 @@
 # 📚 Knowledge Base Search Chatbot for Advertising Agencies
 
-![Start Image](imgs/start_img.png)
+<p style="text-align: center;">
+   <img src="imgs/start_img.png" alt="Start Image">
+</p>
 
 Welcome to the **Knowledge Base Search Chatbot**, an intelligent solution tailored for **[Media Wise](https://mediadirectiongroup.ru/agency/mediawise/)**. Integrated seamlessly into Telegram, this chatbot empowers advertising professionals to access precisely the information they need, along with direct links to relevant documents. The bot also supports real-time updates, allowing users to expand the knowledge base with new files, keeping resources fresh and comprehensive.
 
