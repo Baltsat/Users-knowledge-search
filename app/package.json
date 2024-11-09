@@ -60,6 +60,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@gradio/client": "^1.7.1",
 		"dotenv": "^16.4.5",
 		"postgres": "^3.4.3"
 	}

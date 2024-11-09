@@ -1,12 +1,14 @@
 <script lang="ts">
   import MaterialSymbolsUpload from '~icons/material-symbols/upload';
+
+  export let title = 'Martech - Pharma'
 </script>
 
 <div class="bg-base-200 rounded-xl w-full p-3 flex gap-4 items-center shadow-md">
 	<div class="image"></div>
 	<div class="shrink w-full">
     <div class="flex w-full justify-between items-center">
-		  <h2 class="text-xl font-bold">Martech - Pharma</h2>
+		  <h2 class="text-xl font-bold truncate" {title} >{title}</h2>
       <div class="flex gap-1 items-center text-neutral/70">
         <span> 09.11.2024</span>
         <MaterialSymbolsUpload/>

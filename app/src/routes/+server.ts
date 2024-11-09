@@ -1,6 +1,11 @@
 import { Composer } from '@chord-ts/rpc'
 import { sveltekitMiddleware } from '@chord-ts/rpc/middlewares'
 import { json, RequestEvent } from '@sveltejs/kit'
+import { Client as GradioClient } from "@gradio/client";
+
+
+const gradio = await GradioClient.connect()
+
 
 const composer = Composer.init({
   
