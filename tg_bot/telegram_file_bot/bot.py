@@ -81,6 +81,26 @@ async def send_welcome(message: Message):
     )
     await message.answer(welcome_text)
 
+@dp.message(F.text)
+async def handle_other_messages(message: Message):
+    """
+    Handles all other messages.
+    """
+
+    found = find(message.text)
+    logger.info("Found", found)
+
+    for card in found:
+        title = card['fields']['fileName'][0]
+        description = card['fields']['description'][0]
+        slide = card['fields']['slide'][0]
+        await message.answer(f'Файл: {title}\nСлайд: {slide}\nОписание: {description}')
+
+        # TODO FIX IT
+        # file_path = f'../content/{title}'
+        # with open(file_path, 'rb') as file:
+        #     await bot.send_document(chat_id=message.chat.id, document=file)
+
 
 @dp.message(F.document)
 async def handle_document(message: Message):

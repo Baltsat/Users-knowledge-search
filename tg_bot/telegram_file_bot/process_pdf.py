@@ -149,7 +149,7 @@ import os
 
 if __name__ == "__main__":
     
-    path = "./content/"
+    path = "../../content/"
     
     # r=root, d=directories, f = files
     for r, d, f in os.walk(path):

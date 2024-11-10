@@ -1,5 +1,6 @@
 python-dotenv
 pi-heif
+pikepdf
 aiogram==3.6.0
 celery==5.2.3
 redis==4.5.5
