@@ -21,8 +21,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Копируем остальную часть приложения в контейнер
 COPY . .
 
-# Создаем директорию для загрузок
-RUN mkdir -p downloads
-
 # Указываем команду по умолчанию (телеграм-бот)
 CMD ["python", "app.py"]

@@ -24,4 +24,4 @@ def search_endpoint(req: Search):
 
 
 if __name__ == "__main__":
-  uvicorn.run("app:app", reload=True, use_colors=True)
+  uvicorn.run("app:app", reload=True, use_colors=True, host="0.0.0.0", port=8000)
