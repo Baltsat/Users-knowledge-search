@@ -1,6 +1,6 @@
 import {PUBLIC_BACKEND_HOST} from '$env/static/public'
 
-async function search(query: string){
+export async function submitSearch(query: string){
   return fetch(`${PUBLIC_BACKEND_HOST}/search`, {
     method: 'POST',
     headers: {

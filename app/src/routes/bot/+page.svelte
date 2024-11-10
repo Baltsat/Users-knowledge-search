@@ -2,8 +2,7 @@
 	import { WebApp } from '$lib/stores';
 	import PhMagnifyingGlassBold from '~icons/ph/magnifying-glass-bold';
 	import { Firework } from 'svelte-loading-spinners';
-	import { rpc } from '$root/routes/controller';
-
+	import { submitSearch } from '$root/routes/controller';
 	import Card from './Card.svelte';
 
 	let search = '';
@@ -18,7 +17,7 @@
 
 	async function submit() {
 		loading = true;
-		data = await rpc.FastApi.search(search);
+		data = await submitSearch(search);
 		loading = false;
 	}
 </script>
