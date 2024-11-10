@@ -4,7 +4,7 @@ from tqdm import tqdm
 from pipelines import process_doc
 
 
-files = list(filter((lambda f: "pdf_processed" in f), os.listdir("./content")))
+files = list(filter((lambda f: "pdf_processed" in f), os.listdir("../content")))
 
 for fileName in tqdm(files):
     with open(f"../content/{fileName}", "r", encoding="utf8") as file:
