@@ -3,10 +3,12 @@ import os
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import Command
 from aiogram.types import Message, Document, PhotoSize
+
 import aiohttp
 import asyncio
 
-from tg_bot.config import API_TOKEN
+from pipelines import find
+from config import API_TOKEN
 
 # ---------------------- Configuration ----------------------
 
@@ -73,8 +75,8 @@ async def send_welcome(message: Message):
     Responds to /start and /help commands with a welcome message.
     """
     welcome_text = (
-        "Hello! 👋\n\n"
-        "Send me any file or photo, and I'll store it for you. 📁📸"
+        "Доброе пожаловать в хранилище! 👋\n\n"
+        "Чтобы запустить приложение нажмите на кнопку. Вы также можете присылать файлы в чат для обогащения хранилища или написать текстовый поисковый запрос 📁📸"
     )
     await message.answer(welcome_text)
 
@@ -95,9 +97,9 @@ async def handle_document(message: Message):
     saved_path = await download_file(bot, file_id, file_path)
 
     if saved_path:
-        await message.answer(f"📄 Document '{filename}' has been saved successfully!")
+        await message.answer(f"📄 Документ '{filename}'успешно сохранен!")
     else:
-        await message.answer("⚠️ Failed to save the document.")
+        await message.answer("⚠️ Не удалось сохранить документ.")
 
 @dp.message(F.photo)
 async def handle_photo(message: Message):
@@ -121,12 +123,25 @@ async def handle_photo(message: Message):
     else:
         await message.answer("⚠️ Failed to save the photo.")
 
-@dp.message()
+@dp.message(F.text)
 async def handle_other_messages(message: Message):
     """
     Handles all other messages.
     """
-    await message.answer("🤔 Please send a document or a photo to store.")
+
+    found = find(message.text)
+    logger.info("Found", found)
+
+    for card in found:
+        title = card['fields']['fileName'][0]
+        description = card['fields']['description'][0]
+        slide = card['fields']['slide'][0]
+        await message.answer(f'Файл: {title}\nСлайд: {slide}\nОписание: {description}')
+
+        # TODO FIX IT
+        # file_path = f'../content/{title}'
+        # with open(file_path, 'rb') as file:
+        #     await bot.send_document(chat_id=message.chat.id, document=file)
 
 # ---------------------- Startup and Shutdown ----------------------
 
@@ -147,3 +162,18 @@ if __name__ == '__main__':
         dp.run_polling(bot, allow_updates=True)
     except (KeyboardInterrupt, SystemExit):
         logger.error("Bot stopped!")
+
+# bot.start(async (ctx) => {
+# 	await ctx.reply(
+# 		'Доброе пожаловать в хранилище. Чтобы запустить приложение нажмите на кнопку',
+# 		// Markup.keyboard([Markup.button.webApp('Приложение', `${env.ORIGIN}/bot`)])
+# 	);
+# });
+
+# bot.on(message('text'), async (ctx) => {
+# 	await ctx.reply(ctx.message.text);
+# });
+
+# bot.on(message('document'), async (ctx) => {
+# 	console.log(ctx.message.document.mime_type);
+# });
