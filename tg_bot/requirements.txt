@@ -1,3 +1,4 @@
+torch
 opensearch-py
 pydantic
 python-dotenv
