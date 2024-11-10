@@ -8,7 +8,7 @@ import aiohttp
 from config import API_TOKEN, DOWNLOAD_PATH
 from pipelines import find
 from process_pdf import process_and_save
-
+from aiogram.types import FSInputFile
 
 # ---------------------- Configuration ----------------------
 
@@ -96,11 +96,12 @@ async def handle_other_messages(message: Message):
         description = card['fields']['description'][0]
         slide = card['fields']['slide'][0]
         await message.answer(f'Файл: {title}\nСлайд: {slide}\nОписание: {description}')
-
+        
+        title = "0.pdf"
         # TODO FIX IT
-        # file_path = f'../content/{title}'
-        # with open(file_path, 'rb') as file:
-        #     await bot.send_document(chat_id=message.chat.id, document=file)
+        file_path = f'../content/{title}'
+        file = FSInputFile(file_path)
+        await bot.send_document(chat_id=message.chat.id, document=file)
 
 
 @dp.message(F.document)

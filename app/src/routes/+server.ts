@@ -1,13 +1,13 @@
 import { Composer, rpc } from '@chord-ts/rpc'
 import { sveltekitMiddleware } from '@chord-ts/rpc/middlewares'
 import { json, RequestEvent } from '@sveltejs/kit'
-
+import {BACKEND_HOST} from '$env/static/private'
 
 
 class FastApi {
   @rpc()
   async search(query: string) {
-    return fetch('http://localhost:8000/search', {
+    return fetch(`${BACKEND_HOST}/search`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
