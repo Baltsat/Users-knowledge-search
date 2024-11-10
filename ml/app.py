@@ -3,7 +3,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from pipelines import find
-from bot import bot
 
 
 app = FastAPI()
@@ -25,5 +24,4 @@ def search_endpoint(req: Search):
 
 
 if __name__ == "__main__":
-  bot.run_polling()
   uvicorn.run("app:app", reload=True, use_colors=True)
