@@ -25,8 +25,8 @@ with torch.no_grad():
     mean_pooled = model.encode(text)
 
 query = {
-    "size": 2,
-    "query": {"knn": {"embedding": {"vector": mean_pooled, "k": 2}}},
+    "size": 10,
+    "query": {"knn": {"embedding": {"vector": mean_pooled, "k": 3}}},
     "_source": False,
     "fields": ["id", "name", "description"],
 }

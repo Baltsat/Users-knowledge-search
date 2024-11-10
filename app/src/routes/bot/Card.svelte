@@ -1,27 +1,27 @@
 <script lang="ts">
-  import MaterialSymbolsUpload from '~icons/material-symbols/upload';
+  import MaterialSymbolsLightMatchCase from '~icons/material-symbols-light/match-case';
+  export let card;
 
-  export let title = 'Martech - Pharma'
+  let [title] = card.fields.fileName
+  let [description] = card.fields.description
+  let [slide] = card.fields.slide
+  let score = Number(card._score).toLocaleString()
 </script>
 
 <div class="bg-base-200 rounded-xl w-full p-3 flex gap-4 items-center shadow-md">
 	<div class="image"></div>
 	<div class="shrink w-full">
     <div class="flex w-full justify-between items-center">
-		  <h2 class="text-xl font-bold truncate" {title} >{title}</h2>
+		  <h2 class="text-xl font-bold truncate" {title} >Файл: {title}</h2>
       <div class="flex gap-1 items-center text-neutral/70">
-        <span> 09.11.2024</span>
-        <MaterialSymbolsUpload/>
+        <span>{score}</span>
       </div>
     </div>
-		<span class="text-xs rounded-full mx-0.5 px-2 py-0.5 border border-secondary">ИИ</span>
-		<span class="text-xs rounded-full mx-0.5 px-2 py-0.5 border border-info">Данные</span>
-		<span class="text-xs rounded-full mx-0.5 px-2 py-0.5 border border-primary">+3</span>
+		<span class="text-xs rounded-full mx-0.5 px-2 py-0.5 border border-primary">Слайд: {slide}</span>
+		<!-- <span class="text-xs rounded-full mx-0.5 px-2 py-0.5 border border-info">Данные</span> -->
+		<!-- <span class="text-xs rounded-full mx-0.5 px-2 py-0.5 border border-primary">+3</span> -->
 		<p class="line-clamp-3 text-xs mt-1 text-neutral/80">
-			Задача организации, в особенности же дальнейшее развитие различных форм деятельности в
-			значительной степени обуславливает создание форм развития. Равным образом постоянное информационно-пропагандистское
-			обеспечение нашей деятельности в значительной степени обуславливает создание направлений
-			прогрессивного развития. Товарищи!
+			{description}
 		</p>
 	</div>
 </div>

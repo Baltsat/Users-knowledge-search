@@ -1,15 +1,27 @@
-import { Composer } from '@chord-ts/rpc'
+import { Composer, rpc } from '@chord-ts/rpc'
 import { sveltekitMiddleware } from '@chord-ts/rpc/middlewares'
 import { json, RequestEvent } from '@sveltejs/kit'
-import { Client as GradioClient } from "@gradio/client";
 
 
-const gradio = await GradioClient.connect()
 
+class FastApi {
+  @rpc()
+  async search(query: string) {
+    return fetch('http://localhost:8000/search', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        accept: 'application/json'
+      },
+      body: JSON.stringify({query})
+    }).then(r => r.json())
+  }
+}
 
 const composer = Composer.init({
-  
+  FastApi: new FastApi()
 })
+
 export type Client = typeof composer.clientType
 composer.use(sveltekitMiddleware())
 
