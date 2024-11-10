@@ -1,141 +1,127 @@
-# 📚 Knowledge Base Search Chatbot for Advertising Agencies
+# 📚 Мультиплатформенный сервис для поиска и анализа информации
 
 <p align="center">
    <img src="imgs/start_img.png" alt="Start Image">
 </p>
 
-Welcome to the **Knowledge Base Search Chatbot**, an intelligent solution tailored for **[Media Wise](https://mediadirectiongroup.ru/agency/mediawise/)**. Integrated seamlessly into Telegram, this chatbot empowers advertising professionals to access precisely the information they need, along with direct links to relevant documents. The bot also supports real-time updates, allowing users to expand the knowledge base with new files, keeping resources fresh and comprehensive.
+Добро пожаловать в интеллектуальный поисковый сервис, созданный специально для **[Media Wise](https://mediadirectiongroup.ru/agency/mediawise/)**. Доступный через веб-интерфейс и Telegram Web App, этот сервис обеспечивает удобный доступ к информации с любого устройства. Сервис поддерживает различные форматы данных, включая текст, изображения и таблицы, и позволяет быстро находить точные ответы в огромных объемах документов.
 
-## ✨ Key Features
+## ✨ Ключевые особенности
 
-- **🔍 Quick & Accurate Search with Direct Links**  
-  Instantly find and access relevant information across extensive repositories. Each search result includes a direct link to the requested document, allowing users to quickly open and utilize the information.
+**Поддержка пяти форматов файлов и мультимедийных данных**  
+Работа с .txt, .pdf, .html, .mhtml и .xlsx делает сервис универсальным инструментом, подходящим для любых типов контента. Он обрабатывает текст, изображения и таблицы, обеспечивая полный охват информации в документах.
 
-- **📥 Real-Time Database Expansion**  
-  Easily upload new files to the knowledge base through the Telegram mini-app. This ensures that all important resources are available and up-to-date for ongoing campaigns and strategic planning.
+**Продвинутая обработка сложных запросов**  
+Сервис использует передовые модели, включая RAG, Graphrag, NanoGraphRAG и LightRAG, что позволяет справляться с нелинейными запросами и находить релевантные данные даже при сложных запросах. Каждая найденная информация сопровождается графовой структурой взаимосвязей, делая работу системы прозрачной и легкой для понимания.
 
-- **🏆 Performance Metrics & Leaderboard**  
-  Track search accuracy, user engagement, and efficiency with built-in metrics. A leaderboard highlights top users, making the search process interactive and motivating.
+**Интерактивный просмотр и два режима работы**  
+Отображение релевантных частей документов прямо в интерфейсе позволяет пользователю быстро получать нужные данные. Два режима работы — "На лету" для быстрого поиска и "Финальная редакция" для точных ответов — предоставляют гибкость и адаптируются под потребности пользователя.
 
-## 🛠️ Solution Overview
+## 🛠️ Основные технологии
 
-In the fast-paced world of advertising, quick access to information is essential. This Telegram-based chatbot revolutionizes how **Media Wise** teams find and interact with their knowledge base, allowing them to focus on creativity and strategy. By providing direct links to the requested documents and supporting real-time file uploads, this tool ensures teams always have the right resources at their fingertips.
+Сервис построен на базе open-source инструментов, таких как Llama 3.2 Vision и библиотека Kotaemon, а также использует дообученный эмбеддер e5-large, обеспечивающий высокую точность обработки данных. Интеграция с передовыми моделями позволяет системе быть гибкой и адаптируемой под конкретные нужды пользователей.
 
-## 🚀 Demo
+## 🚀 Быстрый старт
 
-![Demo GIF](imgs/demo.gif)
-
-**[Try the Telegram Demo](https://t.me/mock_knowledge_base_bot)**
-
-Experience the chatbot firsthand! Enter your query, and the bot will retrieve direct links to relevant documents from the knowledge base in seconds. Key strengths:
-- **Seamless Access**: Provides direct links for immediate access to documents, streamlining workflow.
-- **Continuous Database Growth**: Easily add new files, ensuring the knowledge base grows alongside the team’s needs.
-- **Engagement & Productivity**: Performance metrics and a leaderboard foster a collaborative, efficient work environment.
-
-## 🚀 Quick Start
-
-1. **Clone the Repository**  
+1. **Клонируйте репозиторий**  
    ```bash
    git clone https://github.com/Baltsat/Users-knowledge-search.git
    ```
-2. **Install Dependencies**  
-   Ensure Python 3.10+ is installed, then run:
+2. **Установите зависимости**  
+   Убедитесь, что у вас установлена Python 3.10+, затем выполните:
    ```bash
    pip install -r requirements.txt
    ```
-3. **Configure Telegram Bot**  
-   Register a bot on Telegram via [BotFather](https://core.telegram.org/bots#botfather) and get your API token. Set it up as an environment variable:
+3. **Настройте Telegram Bot**  
+   Зарегистрируйте бота на Telegram через [BotFather](https://core.telegram.org/bots#botfather) и получите ваш API-токен. Установите его как переменную окружения:
    ```bash
    export TELEGRAM_TOKEN="your-telegram-bot-token"
    ```
-4. **Launch the Bot**  
-   Start the bot with:
+4. **Запустите бота**  
+   Запустите бота командой:
    ```bash
    python bot.py
    ```
 
-## ⚙️ Functional Workflow
+## ⚙️ Рабочий процесс
 
-- **Smart Search with Direct Access Links**  
-  Users enter search queries directly into the Telegram bot. For each query, the bot provides a list of relevant documents along with direct links, enabling instant access to the required resources.
+**Умный поиск с прямыми ссылками**  
+Пользователи вводят запросы напрямую в боте Telegram. Для каждого запроса бот предоставляет список релевантных документов с прямыми ссылками, что позволяет мгновенно получить доступ к необходимым ресурсам.
 
-- **Easy Uploads for Database Expansion**  
-  Need to add new documents? Upload files directly in the Telegram chat to continuously grow and update the knowledge base, keeping information relevant and accessible.
+**Легкое добавление документов**  
+Необходимо добавить новые документы? Загружайте файлы прямо в чат Telegram, чтобы база знаний обновлялась и всегда оставалась актуальной.
 
-- **Tracking & Engagement**  
-  Keep an eye on retrieval speed, relevance, and user engagement. The leaderboard adds a bit of friendly competition, making the search experience enjoyable and engaging.
+**Отслеживание и взаимодействие**  
+Система отслеживает скорость выдачи, релевантность и активность пользователей, предлагая дружеское соревнование с помощью лидерборда, что делает работу более увлекательной и мотивирующей.
 
-## 📊 Key Metrics
+## 📊 Основные метрики
 
-| Metric              | Description                                       | Target       |
-|---------------------|---------------------------------------------------|--------------|
-| **Retrieval Speed** | Time taken to return search results               | < 1 second   |
-| **Search Relevance**| Accuracy and relevance of retrieved documents     | High         |
-| **User Engagement** | User activity levels and leaderboard standings    | Top 10%      |
+| Метрика              | Описание                                       | Цель       |
+|----------------------|-----------------------------------------------|------------|
+| **Скорость поиска**  | Время на получение результатов поиска         | < 1 сек.   |
+| **Релевантность**    | Точность и релевантность найденных данных     | Высокая    |
+| **Активность пользователей** | Уровень вовлеченности и позиции в лидерборде | Топ 10%    |
 
-## 🔗 API Documentation
+## 🔗 Документация API
 
-This bot uses a Django REST API to handle interactions with the knowledge base.
+Этот бот использует Django REST API для обработки запросов к базе данных.
 
-### Endpoints
+### Эндпоинты
 
-1. **Search `/api/search`**  
-   - `GET`: Retrieve documents based on a search query, with each result including a direct link to the document.
+1. **Поиск `/api/search`**  
+   - `GET`: Получение документов по запросу, каждый результат включает прямую ссылку на документ.
 
-2. **Upload `/api/upload`**  
-   - `POST`: Add a new document to the knowledge base, enabling users to keep resources updated.
+2. **Загрузка `/api/upload`**  
+   - `POST`: Добавление нового документа в базу данных, чтобы пользователи всегда могли получать актуальные ресурсы.
 
-### Data Structure
-Each document in the API includes:
-- `title`: The document or presentation title.
-- `type`: File type (e.g., text, presentation).
-- `upload_date`: Date of addition.
-- `tags`: Keywords to enhance search relevance.
+### Структура данных
+Каждый документ в API содержит:
+- `title`: Название документа или презентации.
+- `type`: Тип файла (например, текст, презентация).
+- `upload_date`: Дата загрузки.
+- `tags`: Ключевые слова для повышения релевантности поиска.
 
-## 🌟 Installation & Launch
+## 🌟 Установка и запуск
 
-To get the chatbot up and running:
+Чтобы запустить бота:
 
-1. Clone the repository:  
+1. Клонируйте репозиторий:  
    ```bash
    git clone https://github.com/Baltsat/Users-knowledge-search.git
    ```
-2. Create a virtual environment and activate it.
-3. Install dependencies:  
+2. Создайте виртуальное окружение и активируйте его.
+3. Установите зависимости:  
    ```bash
    pip install -r requirements.txt
    ```
-4. Apply database migrations:  
+4. Примените миграции базы данных:  
    ```bash
    python manage.py migrate
    ```
-5. Run the server:  
+5. Запустите сервер:  
    ```bash
    python manage.py runserver
    ```
 
-## 🔍 Example API Requests
-- **Search Query**  
+## 🔍 Примеры API-запросов
+- **Запрос на поиск**  
   ```
   GET http://localhost:8000/api/search?query=campaign+strategy
   ```
-- **File Upload**  
+- **Загрузка файла**  
   ```
   POST http://localhost:8000/api/upload
   ```
 
-## 👥 Meet the Team
+## 👥 Наша команда
 
-Our talented team is here to bring this solution to life:
-
-| Name               | Role                 | Contact                        |
-|--------------------|----------------------|--------------------------------|
-| Konstantin Baltsat | ML         | [t.me/BALTSAT](https://t.me/BALTSAT) |
-| Igor Din        | Fullstack         | [t.me/ig_din](https://t.me/ig_din) |
-| Sakhnevich Kirill  | ML          | [t.me/SakhnevichKirill](https://t.me/SakhnevichKirill) |
-| Artem Sosedka            | ML          | [t.me/sostema](https://t.me/sostema) |
+| Имя               | Роль                 | Контакт                        |
+|-------------------|----------------------|--------------------------------|
+| Константин Балцат | Product    & ML           | [t.me/BALTSAT](https://t.me/BALTSAT) |
+| Игорь Дин         | Fullstack            | [t.me/ig_din](https://t.me/ig_din) |
+| Кирилл Сахневич   | ML & Backend                  | [t.me/SakhnevichKirill](https://t.me/SakhnevichKirill) |
+| Артем Соседка     | ML   &  MLOps            | [t.me/sostema](https://t.me/sostema) |
 
 ---
 
-This chatbot brings efficiency and simplicity to Media Wise’s information retrieval process, making data access faster and easier than ever. With a powerful Telegram mini-app at your disposal, your team can make informed decisions, stay engaged, and maintain an ever-growing knowledge base—all in one place. Ready to unlock a new level of productivity? Get started with the Knowledge Base Search Chatbot today!
-
+Это решение упрощает процесс поиска и анализа информации, делая доступ к данным быстрее и удобнее, чем когда-либо. С мощным Telegram mini-app для доступа к базе данных, ваша команда сможет принимать обоснованные решения, оставаться вовлеченной и поддерживать актуальную базу знаний — все в одном месте. Готовы к новому уровню продуктивности? Начните с нашего мультиплатформенного сервиса уже сегодня!
