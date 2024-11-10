@@ -97,9 +97,9 @@ async def handle_other_messages(message: Message):
         slide = card['fields']['slide'][0]
         await message.answer(f'Файл: {title}\nСлайд: {slide}\nОписание: {description}')
         
-        title = "0.pdf"
         # TODO FIX IT
-        file_path = f'../content/{title}'
+        # file_path = './content/0.pdf'
+        file_path = f'./content/{title}'
         file = FSInputFile(file_path)
         await bot.send_document(chat_id=message.chat.id, document=file)
 
