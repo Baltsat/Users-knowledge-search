@@ -1,12 +1,10 @@
-import os
 from opensearchpy import OpenSearch, helpers
-from dotenv import load_dotenv
-load_dotenv()
+from config import OPENSEARCH_HOST
 
 INDEX_NAME = "recipe"
 
 client = OpenSearch(
-    hosts=[os.environ['OPENSEARCH_HOST']],
+    hosts=[OPENSEARCH_HOST],
     http_compress=True,
     use_ssl=False,  # DONT USE IN PRODUCTION
     verify_certs=False,  # DONT USE IN PRODUCTION

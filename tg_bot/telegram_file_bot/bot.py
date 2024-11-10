@@ -6,6 +6,7 @@ from aiogram.filters import Command
 from aiogram.types import Message, Document, PhotoSize
 import aiohttp
 from config import API_TOKEN, DOWNLOAD_PATH
+from pipelines import find
 from process_pdf import process_and_save
 
 
