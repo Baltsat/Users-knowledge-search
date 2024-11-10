@@ -5,8 +5,11 @@ from pipelines import process_doc
 
 
 def seed_by_file(fileName: str, base_url: str = "../content"):
-    with open(f"{base_url}/{fileName}", "r", encoding="utf8") as file:
+    # with open(f"{base_url}/{fileName}", "r", encoding="utf8") as file:
+    print(f"{base_url}/{fileName}")
+    with open(f"{base_url}/{fileName}", "r", encoding="utf8", errors='replace') as file:
         data = json.load(file)
+        print("seed_by_file data: ", len(data))
         number = fileName.split(".")[0]
         formatted = []
         for [k, v] in data.items():
