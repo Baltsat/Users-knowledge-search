@@ -8,3 +8,4 @@ load_dotenv()
 
 # Bot token (from @BotFather in Telegram)
 API_TOKEN = os.environ['BOT_TOKEN']
+DOWNLOAD_PATH = os.getenv("DOWNLOAD_PATH", "downloads")  # Путь для сохранения файлов

@@ -1,8 +1,0 @@
-python-dotenv
-pi-heif
-aiogram==3.6.0
-celery==5.2.3
-redis==4.5.5
-unstructured==0.16.5
-unstructured-inference==0.8.1
-python-dotenv==0.20.0
