@@ -8,7 +8,7 @@ services:
       context: ./app
     environment:
       - PORT=3000
-      - ORIGIN=http://176.109.106.238/
+      - ORIGIN=http://176.109.106.238
 
     volumes:
       - ./app/static:/app/static
