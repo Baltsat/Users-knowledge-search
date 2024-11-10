@@ -5,8 +5,8 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.filters import Command
 from aiogram.types import Message, Document, PhotoSize
 import aiohttp
-from tasks import process_pdf_task
 from config import API_TOKEN, DOWNLOAD_PATH
+from process_pdf import process_and_save
 
 
 # ---------------------- Configuration ----------------------
@@ -105,8 +105,9 @@ async def handle_document(message: Message):
 
     if saved_path:
         await message.answer("📄 PDF файл был успешно сохранен и отправлен на обработку.")
-        # Отправка задачи в Celery очередь
-        process_pdf_task.delay(file_path)
+        logger.info(f"Начало обработки файла: {file_path}")
+        json_output = process_and_save(file_path)
+        logger.info(f"Завершена обработка файла: {file_path}")
     else:
         await message.answer("⚠️ Не удалось сохранить PDF файл.")
 
