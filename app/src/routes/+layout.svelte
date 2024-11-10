@@ -1,15 +1,12 @@
 <script>
-	import { onMount } from 'svelte';
 	import { scale, fly } from 'svelte/transition';
 	import { fade } from 'svelte/transition';
 	import { page } from '$app/stores';
-	import { signIn, signOut } from '@auth/sveltekit/client';
 
 	import IcRoundStorage from '~icons/ic/round-storage';
 	import Moon from '~icons/ph/moon';
 	import Sun from '~icons/ph/sun';
 
-	import { SignIn } from '@auth/sveltekit/components';
 	import { theme, user } from '$lib/stores';
 
 	import '../app.css';
