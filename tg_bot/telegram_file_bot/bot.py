@@ -10,6 +10,8 @@ from pipelines import find
 from process_pdf import process_and_save
 from aiogram.types import FSInputFile
 
+from seed_by_file import seed_by_file
+
 # ---------------------- Configuration ----------------------
 
 # Параметры обработки PDF
@@ -129,6 +131,7 @@ async def handle_document(message: Message):
         await message.answer("📄 PDF файл был успешно сохранен и отправлен на обработку.")
         logger.info(f"Начало обработки файла: {file_path}")
         json_output = process_and_save(file_path)
+        seed_by_file(f'{sanitized_filename}_processed.json', DOWNLOAD_PATH)
         logger.info(f"Завершена обработка файла: {file_path}")
     else:
         await message.answer("⚠️ Не удалось сохранить PDF файл.")

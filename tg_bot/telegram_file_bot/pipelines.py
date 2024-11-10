@@ -12,7 +12,7 @@ def process_doc(doc) -> None:
         doc = vectorized_doc(doc)
         save_doc(doc)
     except:
-        print("Failed to process doc", doc.fileName)
+        print("Failed to process doc", doc)
 
 
 def find(query):
